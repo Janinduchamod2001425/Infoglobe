@@ -4,22 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70813064-5efd-4ad5-8d37-7862c84d54e6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/config/firebase.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/controllers/auth.controller.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/middleware/auth.middleware.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/routes/auth.routes.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/utils/generateToken.util.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/config/firebase.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/config/firebase.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/LoginPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/LoginPage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/SignUpPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/SignUpPage.jsx" afterDir="false" />
-    </list>
+    <list default="true" id="70813064-5efd-4ad5-8d37-7862c84d54e6" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -88,7 +73,7 @@
       <option name="presentableId" value="Default" />
       <updated>1745811656234</updated>
       <workItem from="1745811658880" duration="4353000" />
-      <workItem from="1745816715083" duration="1511000" />
+      <workItem from="1745816715083" duration="1828000" />
     </task>
     <servers />
   </component>
