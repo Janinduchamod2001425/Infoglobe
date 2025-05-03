@@ -27,7 +27,7 @@ const App = () => {
 
   if (loading) {
     return (
-        <div className="flex justify-center items-center min-h-screen">
+        <div className="bg-gradient-to-r via-green-100 from-blue-100 to-yellow-100 flex justify-center items-center min-h-screen">
           <Lottie
               animationData={loadingAnimation}
               loop={true}
