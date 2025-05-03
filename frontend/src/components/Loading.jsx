@@ -17,7 +17,7 @@ const Loading = () => {
 
   return (
     isLoading && (
-      <div className="fixed inset-0 flex justify-center items-center z-50">
+      <div className="bg-gradient-to-r via-green-100 from-blue-100 to-yellow-100 fixed inset-0 flex justify-center items-center z-50">
         <Lottie
           animationData={LoadingAnimation}
           loop={true}
