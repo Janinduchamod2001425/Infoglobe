@@ -1,6 +1,7 @@
 # Frontend setup
 
-### Create a folder called "frontend" in the root 
+### Create a folder called "frontend" in the root
+
 ```bash
 mkdir frontend
 ```
@@ -12,6 +13,7 @@ npm create vite@latest .
 ```
 
 ### Setup Tailwind CSS
+
 ```bash
 npm install -D tailwindcss@3 postcss autoprefixer
 npx tailwindcss init -p
@@ -28,3 +30,13 @@ npm install
 ```bash
 npm run dev
 ```
+
+### Build the Project
+
+```bash
+npm run build
+```
+
+### Deployment
+
+* Vercel

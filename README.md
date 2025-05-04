@@ -2,6 +2,8 @@
 
 ###### REST Countries API
 
+![Logo](cover/Infoglobe.png)
+
 ### 📌 Overview
 
 World Explorer is a responsive React application that allows users to explore country information from around the world
@@ -11,7 +13,7 @@ system.
 ### ✨ Features
 
 * **Country Browsing**: View all countries with key details
-* **Advanced Search**: Filter by name, region, or language
+* **Advanced Search**: Filter by name, region, or language also can search by country name
 * **User Authentication**: Secure signup/login with Firebase
 * **Favorites System**: Save favorite countries (persists across sessions)
 * **Responsive Design**: Works on all device sizes (Tailwind CSS)
@@ -33,16 +35,10 @@ system.
 ![Firebase](https://img.shields.io/badge/Firebase-039BE5?style=for-the-badge&logo=Firebase&logoColor=white)
 ![Firebase Auth](https://img.shields.io/badge/Firebase_Auth-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)
 ![Firebase Firestore](https://img.shields.io/badge/Firestore-FF6F00?style=for-the-badge&logo=firebase&logoColor=white)
-![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)
-![Express.js](https://img.shields.io/badge/Express.js-404D59?style=for-the-badge)
 
-##### API & Security
+##### API
 
 ![Axios](https://img.shields.io/badge/Axios-5A29E4?style=for-the-badge&logo=axios&logoColor=white)
-![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens)
-![CORS](https://img.shields.io/badge/CORS-FF5733?style=for-the-badge)
-![bcrypt.js](https://img.shields.io/badge/Bcrypt.js-3A3A3A?style=for-the-badge)
-![Cookie Parser](https://img.shields.io/badge/Cookie_Parser-FFDD00?style=for-the-badge)
 ![Dotenv](https://img.shields.io/badge/Dotenv-00BFFF?style=for-the-badge)
 
 ##### Utilities
@@ -53,12 +49,15 @@ system.
 
 This project uses the REST Countries API:
 
+- **Purpose**: Primary data source for country information
+- **Endpoint**: `https://restcountries.com/v3.1`
+
 * **GET /all** - Get all countries
 * **GET /name/{name}** - Search by country name
 * **GET /region/{region}** - Filter by region
 * **GET /alpha/{code}** - Get country by code
 
-### .env
+### .env (Firebase configuration)
 
 ```dotenv
 VITE_FIREBASE_API_KEY=your_api_key
@@ -68,4 +67,5 @@ VITE_FIREBASE_STORAGE_BUCKET=your_storage_bucket
 VITE_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
 VITE_FIREBASE_APP_ID=your_app_id
 ```
+
 
