@@ -14,6 +14,7 @@ import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import Lottie from "lottie-react";
 import LoadingAnimation from "../assets/earth.json";
+import Swal from "sweetalert2";
 
 export default function Dashboard() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -114,10 +115,22 @@ export default function Dashboard() {
 
   // Logout function
   const handleLogout = () => {
-    localStorage.removeItem("user");
-    localStorage.removeItem("authToken");
-    toast.success("Logged out successfully");
-    navigate("/login");
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You will be logged out of your session.",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#1a9c0c",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, logout",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        localStorage.removeItem("user");
+        localStorage.removeItem("authToken");
+        toast.success("Logged out successfully");
+        navigate("/login");
+      }
+    });
   };
 
   // Fetch all countries on component mount

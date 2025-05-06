@@ -10,11 +10,13 @@ import {
   getFavorites as getFavoritesService,
   addFavorite as addFavoriteService,
   removeFavorite as removeFavoriteService,
-  isFavorite as isFavoriteService
+  isFavorite as isFavoriteService,
 } from "../services/favourites";
 
+// Creates Context
 const CountryContext = createContext(undefined);
 
+// Provides the Context (Provider Component)
 export function CountryProvider({ children }) {
   const [countries, setCountries] = useState([]);
   const [filteredCountries, setFilteredCountries] = useState([]);
@@ -108,14 +110,14 @@ export function CountryProvider({ children }) {
     try {
       if (isFav) {
         await removeFavoriteService(user.uid, countryCode);
-        setFavorites(favorites.filter(f => f.countryCode !== countryCode));
+        setFavorites(favorites.filter((f) => f.countryCode !== countryCode));
       } else {
         const countryData = {
           countryName: country.name.common,
           flag: country.flags.png,
           region: country.region,
           capital: country.capital?.[0] || "N/A",
-          userId: user.uid
+          userId: user.uid,
         };
         await addFavoriteService(user.uid, countryCode, countryData);
         setFavorites([...favorites, { countryCode, ...countryData }]);
@@ -126,7 +128,7 @@ export function CountryProvider({ children }) {
     }
   };
 
-  // Check if a country is favorited by current user
+  // Check if a country is favorite by current user
   const checkIsFavorite = async (countryCode) => {
     const user = getCurrentUser();
     if (!user) return false;
@@ -134,64 +136,67 @@ export function CountryProvider({ children }) {
   };
 
   return (
-      <CountryContext.Provider
-          value={{
-            countries: showFavorites
-                ? countries.filter(c => favorites.some(f => f.countryCode === c.cca3))
-                : filteredCountries,
-            loading,
-            error,
-            searchTerm,
-            setSearchTerm,
-            regionFilter,
-            setRegionFilter,
-            getCountryByCode: async (code) => {
-              try {
-                setLoading(true);
-                return await getCountryDetails(code);
-              } catch (err) {
-                setError(err.message);
-                return null;
-              } finally {
-                setLoading(false);
-              }
-            },
-            resetAllFilters: () => {
-              setSearchTerm("");
-              setRegionFilter("all");
-            },
-            refreshAllCountries: async () => {
-              try {
-                setLoading(true);
-                const data = await fetchAllCountries();
-                setCountries(data);
-                setFilteredCountries(data);
-              } catch (err) {
-                setError(err.message);
-              } finally {
-                setLoading(false);
-              }
-            },
-            favorites,
-            toggleFavorite,
-            isFavorite: checkIsFavorite,
-            showFavorites,
-            toggleShowFavorites: () => setShowFavorites(!showFavorites),
-            getFavorites: async (userId) => {
-              try {
-                return await getFavoritesService(userId);
-              } catch (error) {
-                console.error("Error loading favorites:", error);
-                return [];
-              }
-            }
-          }}
-      >
-        {children}
-      </CountryContext.Provider>
+    <CountryContext.Provider
+      value={{
+        countries: showFavorites
+          ? countries.filter((c) =>
+              favorites.some((f) => f.countryCode === c.cca3),
+            )
+          : filteredCountries,
+        loading,
+        error,
+        searchTerm,
+        setSearchTerm,
+        regionFilter,
+        setRegionFilter,
+        getCountryByCode: async (code) => {
+          try {
+            setLoading(true);
+            return await getCountryDetails(code);
+          } catch (err) {
+            setError(err.message);
+            return null;
+          } finally {
+            setLoading(false);
+          }
+        },
+        resetAllFilters: () => {
+          setSearchTerm("");
+          setRegionFilter("all");
+        },
+        refreshAllCountries: async () => {
+          try {
+            setLoading(true);
+            const data = await fetchAllCountries();
+            setCountries(data);
+            setFilteredCountries(data);
+          } catch (err) {
+            setError(err.message);
+          } finally {
+            setLoading(false);
+          }
+        },
+        favorites,
+        toggleFavorite,
+        isFavorite: checkIsFavorite,
+        showFavorites,
+        toggleShowFavorites: () => setShowFavorites(!showFavorites),
+        getFavorites: async (userId) => {
+          try {
+            return await getFavoritesService(userId);
+          } catch (error) {
+            console.error("Error loading favorites:", error);
+            return [];
+          }
+        },
+      }}
+    >
+      {children}
+    </CountryContext.Provider>
   );
 }
 
+// Custom Hook to consume the Context
 export function useCountries() {
   const context = useContext(CountryContext);
   if (context === undefined) {
